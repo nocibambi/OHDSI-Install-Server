@@ -24,7 +24,6 @@ The template starts from a clean Windows Server base image. It does not pre-inst
 
 - [PostgreSQL for Windows](https://www.postgresql.org/download/windows/) - use the Windows installer linked from PostgreSQL.
 - [Notepad++ downloads](https://notepad-plus-plus.org/downloads/) - use the current installer, or the course-specific version if required.
-- [The Book of OHDSI](https://ohdsi.github.io/TheBookOfOhdsi/) - reference material for the OHDSI tools and setup workflow.
 
 ## OHDSI-Install-Server deployment instructions
 
@@ -72,7 +71,7 @@ When you've provided appropriate values for the **Parameters**, choose **Next**.
 
 ![alt-text](images/cfn_output.gif "CloudFormation Output")
 
-1. You will now see a list of all of your OHDSI-Install-Server instances and you can connect to them using your Remote Desktop client, the username **Administrator** and the password you provided as a parameter. Leave the domain field empty, or use `.\Administrator` if your RDP client requires a local-account prefix. The template also creates an **ohdsi** local administrator account with the same password.
+1. You will now see a list of all of your OHDSI-Install-Server instances and you can connect to them using your Remote Desktop client, the username **Administrator** and the password you provided as a parameter. Leave the domain field empty, or use `.\Administrator` if your RDP client requires a local-account prefix. It will take about 5 minutes after this list appears for each OHDSI-Install-Server instance to boot up and for the password to be set. If you connect to your instance and it says the password is incorrect, just wait a few more minutes for the password automation to complete. The template also creates an **ohdsi** local administrator account with the same password.
 
 2. Once you are finished with your OHDSI-Install-Server instances, just return to the AWS CloudFormation console and **Delete** the stack, as shown below.  This will terminate all of the instances you launched.
 
