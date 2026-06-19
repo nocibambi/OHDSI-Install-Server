@@ -1,6 +1,6 @@
 ## OHDSI-Install-Server
 
-OHDSI-Install-Server is specifically created as a learning environment, and is used in the OHDSI Tools course in the [EHDEN academy](https://academy.ehden.eu). This course provides training on how to install all the OHDSI tools. The server only includes Postgres and Notepad++ and the goal for the student is to install all the OHDSI tools.
+OHDSI-Install-Server is specifically created as a learning environment, and is used in the OHDSI Tools course in the [EHDEN academy](https://academy.ehden.eu). This course provides training on how to install all the OHDSI tools. The current CloudFormation template launches an Amazon Windows Server 2025 Full Base AMI; students should install the required OHDSI tools as part of the training.
 
 Note that if you are looking to deploy the environment with all tools installed check out the [OHDSI-In-Box project](https://github.com/OHDSI/OHDSI-In-A-box). There is also an enterprise, scalable OHDSI architecture created in the [OHDSIonAWS project](https://github.com/OHDSI/OHDSIonAWS).  
 
@@ -8,20 +8,15 @@ Note that if you are looking to deploy the environment with all tools installed 
 | --- | --- | ---
 | eu-west-1 |EU (Ireland)| [![cloudformation-launch-stack](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=OHDSI&templateURL=https://ohdsi-in-a-box-build.s3-eu-west-1.amazonaws.com/ohdsi-install-server.yaml) |
 
-This server has the following components installed:
+This server uses the following base image:
 
-| Software | Version |
+| Component | Version |
 | --- | ---
-| Postgres | 10.9 |
-| Notepad++ | 7.7.1 |
+| Windows Server | 2025 English Full Base |
 
-**Windows username:** ohdsi
+**Windows username:** Administrator
 
 **Windows password:** this is specified as a parameter during deployment
-
-**Postgres username:** postgres
-
-**Postgres password:** ohdsi
 
 
 ## OHDSI-Install-Server deployment instructions
@@ -67,7 +62,7 @@ When you've provided appropriate values for the **Parameters**, choose **Next**.
 
 ![alt-text](images/cfn_output.gif "CloudFormation Output")
 
-6.  You will now see a list of all of your OHDSI-Install-Server instances and you can connect to them using your Remote Desktop client, the username **ohdsi** and the password you provided as a parameter.  It will take about 5 minutes after this list appears for each OHDSI-Install-Server instance to boot up and for the password to be set.  If you connect to your instance and it says the password is incorrect, just wait a few more minutes for the password automation to complete.
+6.  You will now see a list of all of your OHDSI-Install-Server instances and you can connect to them using your Remote Desktop client, the username **Administrator** and the password you provided as a parameter. Leave the domain field empty, or use `.\Administrator` if your RDP client requires a local-account prefix. It will take about 5 minutes after this list appears for each OHDSI-Install-Server instance to boot up and for the password to be set. If you connect to your instance and it says the password is incorrect, just wait a few more minutes for the password automation to complete. The template also creates an **ohdsi** local administrator account with the same password.
 
 7.  Once you are finished with your OHDSI-Install-Server instances, just return to the AWS CloudFormation console and **Delete** the stack, as shown below.  This will terminate all of the instances you launched.
 
